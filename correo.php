@@ -73,71 +73,77 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->addAddress($email);
         $mail->Subject = "Gracias por ponerte en contacto";
         $mail->Body = "<!DOCTYPE html>
-        <html lang='es'>
-        <head>
-            <meta charset='UTF-8'>
-            <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-            <title>Agradecimiento</title>
-            <style>
-                /* Estilos CSS personalizados */
-                body {
-                    font-family: Arial, sans-serif;
-                    background-color: #f2f2f2;
-                    margin: 0;
-                    padding: 0;
-                    text-align: center;
-                }
-                .container {
-                    max-width: 600px;
-                    margin: 20px auto;
-                    background-color: #ffffff;
-                    border-radius: 10px;
-                    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-                    padding: 40px;
-                }
-                h1 {
-                    color: #333333;
-                    font-size: 28px;
-                    margin-bottom: 20px;
-                }
-                p {
-                    color: #555555;
-                    font-size: 18px;
-                    line-height: 1.6;
-                    margin-bottom: 20px;
-                }
-                strong {
-                    font-weight: bold;
-                }
-                a {
-                    color: #4285f4;
-                    text-decoration: none;
-                }
-                a:hover {
-                    text-decoration: underline;
-                }
-                .logo {
-                    margin-bottom: 30px;
-                }
-                .footer {
-                    margin-top: 40px;
-                    font-size: 14px;
-                    color: #999999;
-                }
-            </style>
-        </head>
-        <body>
-            <div class='container'>
-                <h1>¡Gracias por tu mensaje!</h1>
-                <p>Hola <strong>$name</strong>,</p>
-                <p>Queremos expresar nuestro agradecimiento por ponerte en contacto con nosotros. Hemos recibido tu mensaje y nuestro equipo se pondrá en contacto contigo lo antes posible para ayudarte con cualquier pregunta o solicitud que puedas tener.</p>
-                <p>Saludos cordiales,<br>El equipo de [CANES S.A.C]</p>
-                <div class='footer'>
-                    <p>Si necesitas más información, no dudes en visitar nuestro <a href='https://www.loscorehardcar.shop' target='_blank'>sitio web</a>.</p>
-                </div>
-            </div>
-        </body>
-        </html>";
+<html lang='es'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Agradecimiento</title>
+    <style>
+        /* Estilos CSS personalizados */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            color: #555555;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            border-top: 5px solid #4285f4;
+        }
+        h1 {
+            color: #4285f4;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        strong {
+            font-weight: bold;
+            color: #333333;
+        }
+        a {
+            color: #4285f4;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .footer {
+            margin-top: 40px;
+            font-size: 14px;
+            color: #999999;
+        }
+        .logo {
+            margin-bottom: 30px;
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div class='container'>
+        <img src='https://via.placeholder.com/150' alt='Logo' class='logo'>
+        <h1>¡Gracias por tu mensaje!</h1>
+        <p>Hola <strong>$name</strong>,</p>
+        <p>Queremos expresar nuestro más sincero agradecimiento por ponerte en contacto con nosotros. Tu mensaje ha sido recibido y nuestro equipo se pondrá en contacto contigo lo antes posible para ayudarte en todo lo que necesites.</p>
+        <p>¡Saludos cordiales!</p>
+        <p><strong>El equipo de CANES S.A.C</strong></p>
+        <div class='footer'>
+            <p>Si necesitas más información, no dudes en visitar nuestro <a href='https://www.loscorehardcar.shop' target='_blank'>sitio web</a>.</p>
+        </div>
+    </div>
+</body>
+</html>";
+
 
 
         $mail->send();
