@@ -79,6 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <meta name='viewport' content='width=device-width, initial-scale=1.0'>
             <title>Agradecimiento</title>
             <style>
+                /* Estilos CSS personalizados */
                 body {
                     font-family: Arial, sans-serif;
                     background-color: #f2f2f2;
