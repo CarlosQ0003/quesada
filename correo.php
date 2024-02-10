@@ -81,36 +81,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <style>
                 /* Estilos CSS personalizados */
                 body {
-                    font-family: 'Comic Sans MS', cursive, sans-serif;
+                    font-family: Arial, sans-serif;
                     background-color: #f2f2f2;
                     margin: 0;
                     padding: 0;
                 }
                 .container {
-                    border: 2px dashed #4285f4;
+                    border: 1px solid #dddddd;
                     padding: 20px;
                     margin: 20px auto;
                     background-color: #ffffff;
                     max-width: 600px;
-                    border-radius: 10px;
+                    border-radius: 5px;
                     text-align: center;
-                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
                 }
                 h1 {
                     color: #4285f4;
-                    font-size: 36px;
+                    font-size: 24px;
                     margin-bottom: 20px;
-                    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
                 }
                 p {
                     color: #333333;
-                    font-size: 18px;
+                    font-size: 16px;
                     line-height: 1.6;
                     margin-bottom: 10px;
                 }
                 strong {
                     font-weight: bold;
-                    color: #ff5722;
                 }
                 a {
                     color: #4285f4;
@@ -124,16 +121,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <body>
             <div class='container'>
                 <h1>¡Gracias por Ponerte en Contacto!</h1>
-                <p>¡Hola <strong><?php echo htmlspecialchars(\$name); ?>!</strong></p>
-                <p>¡Tu mensaje nos ha alegrado el día!</p>
-                <p>Pronto nos pondremos en contacto contigo a través de <strong><?php echo htmlspecialchars(\$email); ?></strong>.</p>
-                <p><em>¡Estamos ansiosos por hablar contigo!</em></p>
-                <p><a href='https://www.tuempresa.com' target='_blank'>¡Visita nuestro sitio web para descubrir más sorpresas!</a></p>
-                <img src='https://via.placeholder.com/400' alt='Gracias' style='max-width: 100%; border-radius: 10px; margin-top: 20px;'>
+                <p>Estimado <strong>$name</strong>,</p>
+                <p>Hemos recibido tu mensaje y te agradecemos por tu interés en nuestra empresa.</p>
+                <p>Nos pondremos en contacto contigo pronto en la dirección de correo electrónico <strong>$email</strong> proporcionada.</p>
+                <p><em>Atentamente,<br>El Equipo de [BUHO S.A.C]</em></p>
+                <p><a href='https://www.tuempresa.com' target='_blank'>Visita nuestro sitio web</a> para obtener más información sobre nuestros productos y servicios.</p>
             </div>
         </body>
-        </html>";
-        
+        </html>";
+
 
         $mail->send();
 
