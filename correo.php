@@ -131,7 +131,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <div class='container'>
-        <img src='https://via.placeholder.com/150' alt='Logo' class='logo'>
         <h1>¡Gracias por tu mensaje!</h1>
         <p>Hola <strong>$name</strong>,</p>
         <p>Queremos expresar nuestro más sincero agradecimiento por ponerte en contacto con nosotros. Tu mensaje ha sido recibido y nuestro equipo se pondrá en contacto contigo lo antes posible para ayudarte en todo lo que necesites.</p>
