@@ -73,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->addAddress($email);
         $mail->Subject = "Gracias por ponerte en contacto";
         $mail->Body = "<!DOCTYPE html>
-        <html lang='en'>
+        <html lang='es'>
         <head>
             <meta charset='UTF-8'>
             <meta name='viewport' content='width=device-width, initial-scale=1.0'>
@@ -85,26 +85,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     background-color: #f2f2f2;
                     margin: 0;
                     padding: 0;
-                }
-                .container {
-                    border: 1px solid #dddddd;
-                    padding: 20px;
-                    margin: 20px auto;
-                    background-color: #ffffff;
-                    max-width: 600px;
-                    border-radius: 5px;
                     text-align: center;
                 }
+                .container {
+                    max-width: 600px;
+                    margin: 20px auto;
+                    background-color: #ffffff;
+                    border-radius: 10px;
+                    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+                    padding: 40px;
+                }
                 h1 {
-                    color: #4285f4;
-                    font-size: 24px;
+                    color: #333333;
+                    font-size: 28px;
                     margin-bottom: 20px;
                 }
                 p {
-                    color: #333333;
-                    font-size: 16px;
+                    color: #555555;
+                    font-size: 18px;
                     line-height: 1.6;
-                    margin-bottom: 10px;
+                    margin-bottom: 20px;
                 }
                 strong {
                     font-weight: bold;
@@ -116,19 +116,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 a:hover {
                     text-decoration: underline;
                 }
+                .logo {
+                    margin-bottom: 30px;
+                }
+                .footer {
+                    margin-top: 40px;
+                    font-size: 14px;
+                    color: #999999;
+                }
             </style>
         </head>
         <body>
             <div class='container'>
-                <h1>¡Gracias por Ponerte en Contacto!</h1>
-                <p>Estimado <strong>$name</strong>,</p>
-                <p>Hemos recibido tu mensaje y te agradecemos por tu interés en nuestra empresa.</p>
-                <p>Nos pondremos en contacto contigo pronto en la dirección de correo electrónico <strong>$email</strong> proporcionada.</p>
-                <p><em>Atentamente,<br>El Equipo de [BUHO S.A.C]</em></p>
-                <p><a href='https://www.tuempresa.com' target='_blank'>Visita nuestro sitio web</a> para obtener más información sobre nuestros productos y servicios.</p>
+                <img class='logo' src='https://via.placeholder.com/150' alt='Logo de la empresa'>
+                <h1>¡Gracias por tu mensaje!</h1>
+                <p>Hola <strong>$name</strong>,</p>
+                <p>Queremos expresar nuestro agradecimiento por ponerte en contacto con nosotros. Hemos recibido tu mensaje y nuestro equipo se pondrá en contacto contigo lo antes posible para ayudarte con cualquier pregunta o solicitud que puedas tener.</p>
+                <p>Saludos cordiales,<br>El equipo de [Nombre de tu empresa]</p>
+                <div class='footer'>
+                    <p>Si necesitas más información, no dudes en visitar nuestro <a href='https://www.tuempresa.com' target='_blank'>sitio web</a>.</p>
+                </div>
             </div>
         </body>
-        </html>";
+        </html>";
 
 
         $mail->send();
