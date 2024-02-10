@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+  <title>Petology</title>
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Dosis:400,500|Poppins:400,700&display=swap" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+
+  <style>
+    #miFormulario {
+      text-align: center;
+    }
+
+    .send_bt {
+      margin-top: 10px;
+      /* Ajusta el margen superior según sea necesario */
+    }
+
+    #popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      padding: 20px;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+
+    #popup p {
+      margin-bottom: 10px;
+    }
+
+    #popup button {
+      padding: 5px 10px;
+    }
+  </style>
+
+</head>
+
+<body class="sub_page">
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+            <img src="images/logo.png" alt="">
+            <span>
+              Petology
+            </span>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="d-flex mx-auto flex-column flex-lg-row align-items-center">
+              <ul class="navbar-nav  ">
+                <li class="nav-item active">
+                  <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="service.html">service </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="pet.html">Pet's gallery </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="clinic.html"> clinic</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="contact.html">Contact us</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="buy.html"> Buy now </a>
+                </li>
+              </ul>
+              <form class="form-inline my-2 my-lg-0 ml-0 ml-lg-4 mb-3 mb-lg-0">
+                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
+              </form>
+            </div>
+            <div class="quote_btn-container  d-flex justify-content-center">
+              <a href="">
+                Call: +01 1234567890
+              </a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+
+  </div>
+
+  <script>
+    function enviarCorreo() {
+      var formData = new FormData($("#miFormulario")[0]);
+
+      $.ajax({
+        type: "POST",
+        url: "correo.php",
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function (response) {
+          // Manejar la respuesta del servidor
+          console.log(response);
+
+          // Mostrar mensaje de éxito con SweetAlert2
+          Swal.fire({
+            icon: 'success',
+            title: 'Mensaje enviado correctamente',
+            showConfirmButton: false,
+            timer: 1500
+          });
+
+          limpiarCampos();
+          // Mostrar la ventana emergente
+
+        },
+        error: function (error) {
+          // Manejar errores
+          console.error(error);
+        }
+      });
+    }
+
+
+
+    function mostrarPopup() {
+      document.getElementById('popup').style.display = 'block';
+    }
+
+    function cerrarPopup() {
+      document.getElementById('popup').style.display = 'none';
+    }
+
+    function limpiarCampos() {
+      // Limpiar los valores de los campos del formulario
+      // Obtener el formulario por su ID
+      var formulario = document.getElementById("miFormulario");
+
+      // Resetear el formulario
+      formulario.reset();
+    }  
+  </script>
+
+
+  <!-- map section -->
+
+  <section class="map_section">
+    <div id="map" class="h-100 w-100 ">
+    </div>
+
+    <div class="form_container ">
+      <div class="row">
+        <div class="col-md-8 col-sm-10 offset-md-4">
+
+
+
+
+          <form action="correo.php" method="POST" id="miFormulario" class="contact_form" enctype="multipart/form-data">
+            <div class="text-center">
+              <h3>Contact Us</h3>
+            </div>
+            <div>
+              <input type="text" class="Email_text" placeholder="Name" name="name" required="">
+            </div>
+            <div>
+              <input type="email" class="Email_text" placeholder="Email" name="email" required="">
+            </div>
+            <div>
+              <input type="text" class="massage-bt" placeholder="Message" name="msg" required="">
+            </div>
+
+            <input type="file" name="adjunto" id="adjunto" multiple>
+            <input class="send_bt" type="button" value="Enviar" onclick="enviarCorreo()">
+
+            <div id="popup" style="display:none;">
+              <p>Mensaje enviado correctamente</p>
+              <button onclick="cerrarPopup()">Cerrar</button>
+            </div>
+
+            <script>
+              function mostrarPopup() {
+                document.getElementById('popup').style.display = 'block';
+              }
+
+              function cerrarPopup() {
+                document.getElementById('popup').style.display = 'none';
+              }
+            </script>
+
+          </form>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+
+  <!-- end map section -->
+
+  <!-- info section -->
+  <section class="info_section layout_padding2">
+    <div class="container">
+      <div class="info_items">
+        <a href="">
+          <div class="item ">
+            <div class="img-box box-1">
+              <img src="" alt="">
+            </div>
+            <div class="detail-box">
+              <p>
+                Location
+              </p>
+            </div>
+          </div>
+        </a>
+        <a href="">
+          <div class="item ">
+            <div class="img-box box-2">
+              <img src="" alt="">
+            </div>
+            <div class="detail-box">
+              <p>
+                +02 1234567890
+              </p>
+            </div>
+          </div>
+        </a>
+        <a href="">
+          <div class="item ">
+            <div class="img-box box-3">
+              <img src="" alt="">
+            </div>
+            <div class="detail-box">
+              <p>
+                demo@gmail.com
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- end info_section -->
+
+  <!-- footer section -->
+  <section class="container-fluid footer_section">
+    <p>
+      &copy; 2019 All Rights Reserved By
+      <a href="https://html.design/">Free Html Templates</a>
+    </p>
+  </section>
+  <!-- footer section -->
+
+  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.js"></script>
+
+  <script>
+    // This example adds a marker to indicate the position of Bondi Beach in Sydney,
+    // Australia.
+    function initMap() {
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 11,
+        center: {
+          lat: 40.645037,
+          lng: -73.880224
+        },
+      });
+
+      var image = 'images/maps-and-flags.png';
+      var beachMarker = new google.maps.Marker({
+        position: {
+          lat: 40.645037,
+          lng: -73.880224
+        },
+        map: map,
+        icon: image
+      });
+    }
+  </script>
+  <!-- google map js -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8eaHt9Dh5H57Zh0xVTqxVdBFCvFMqFjQ&callback=initMap">
+  </script>
+  <!-- end google map js -->
+</body>
+
+</html>
