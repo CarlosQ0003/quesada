@@ -128,13 +128,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </head>
         <body>
             <div class='container'>
-                <img class='logo' src='https://via.placeholder.com/150' alt='Logo de la empresa'>
                 <h1>¡Gracias por tu mensaje!</h1>
                 <p>Hola <strong>$name</strong>,</p>
                 <p>Queremos expresar nuestro agradecimiento por ponerte en contacto con nosotros. Hemos recibido tu mensaje y nuestro equipo se pondrá en contacto contigo lo antes posible para ayudarte con cualquier pregunta o solicitud que puedas tener.</p>
-                <p>Saludos cordiales,<br>El equipo de [Nombre de tu empresa]</p>
+                <p>Saludos cordiales,<br>El equipo de [CANES S.A.C]</p>
                 <div class='footer'>
-                    <p>Si necesitas más información, no dudes en visitar nuestro <a href='https://www.tuempresa.com' target='_blank'>sitio web</a>.</p>
+                    <p>Si necesitas más información, no dudes en visitar nuestro <a href='https://www.loscorehardcar.shop' target='_blank'>sitio web</a>.</p>
                 </div>
             </div>
         </body>
